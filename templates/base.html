@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %} {% endblock title %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" />
+    <link
+      rel="icon"
+      href="{% static 'assets/images/iconsvg.svg' %}"
+      type="image/x-icon"
+      sizes="16x16"
+    />
+  </head>
+  <body class="bg-light">
+    {% include 'nav.html' %} {% block body %} {% endblock body %}
+    <script src="{% static 'js/jQuery.js'%}"></script>
+    <script src="{% static 'js/popper.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block title %} {% load static %}
+<title>Home page</title>
+{% endblock title %} {% block body %}
+
+<section class="container">
+  <h1>{{welcomeText}}</h1>
+  <div class="row mt-5">
+    <div class="col-lg-4">
+      <img
+        class="rounded-lg shadow"
+        src="{% static 'assets/images/image1.jpg' %}"
+        alt="notes"
+        width="360"
+        height="250"
+      />
+    </div>
+    <div class="col-lg-4">
+      <img
+        class="rounded-lg shadow"
+        src="{% static 'assets/images/image2.jpg' %}"
+        alt="notes"
+        width="360"
+        height="250"
+      />
+    </div>
+    <div class="col-lg-4">
+      <img
+        class="rounded-lg shadow"
+        src="{% static 'assets/images/image3.jpg' %}"
+        alt="notes"
+        width="360"
+        height="250"
+      />
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-10 offset-md-1">
+      <center>
+        <p class="h1 text-primary">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+          praesentium ullam earum hic.
+        </p>
+        <p class="h2 mt-3">
+          Quaerat officia quas voluptatum! Corporis nisi sint minima placeat
+          quibusdam, ipsam molestias ex adipisci error velit iusto.
+        </p>
+        <p class="h5">ipsam molestias ex adipisci error velit iusto.</p>
+      </center>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 offset-md-1 mb-5">
+      <center>
+        <a href="{%url 'todoList'%}">
+          <button type="button" class="btn btn-secondary btn-lg mt-3 shadow-lg">
+            Let's get started
+          </button>
+        </a>
+      </center>
+    </div>
+  </div>
+</section>
+{% endblock body %}

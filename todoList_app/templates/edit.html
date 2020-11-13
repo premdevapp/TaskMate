@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block title %}
+<title>Update- todolist</title>
+{% endblock title %} {% block body %}
+<section class="container">
+  <h1>{{welcomeText}}</h1>
+  <br />
+  {% if task_obj.manage == request.user %}
+  <form method="POST" class="row">
+    {% csrf_token %}
+    <label for="taskUpdate" class="col-lg-2">Update Task</label>
+    <input
+      type="text"
+      class="form-control col-lg-6"
+      id="taskUpdate"
+      name="task"
+      aria-describedby="taskAddHelp"
+      placeholder="{{task_obj.task}}"
+      value="{{task_obj.task}}"
+    />
+    <input
+      type="hidden"
+      name="done"
+      aria-describedby="taskAddHelp"
+      value="{{task_obj.done}}"
+    />
+
+    <button type="submit" class="btn btn-primary col-lg-2">Update Task</button>
+  </form>
+  {% else %}
+  <p>Access Restricted! You are not allowed....</p>
+  {% endif %}
+</section>
+{% endblock body %}

@@ -1,0 +1,53 @@
+{% url 'todoList' as home %} {% url 'about' as abt %} {% url 'contact' as cnt %}
+{% url 'index' as ind %}
+<section>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <a class="navbar-brand" href="{%url 'index'%}">Top navbar</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarCollapse"
+      aria-controls="navbarCollapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item {% if request.path == ind %} active {% endif %}">
+          <a class="nav-link" href="{%url 'index'%}">Home </a>
+        </li>
+        <li class="nav-item {% if request.path == home %} active {% endif %}">
+          <a class="nav-link" href="{%url 'todoList'%}">Todo List </a>
+        </li>
+        <li class="nav-item {% if request.path == abt %} active {% endif %}">
+          <a class="nav-link" href="{%url 'about'%}">About</a>
+        </li>
+        <li class="nav-item {% if request.path == cnt %} active {% endif %}">
+          <a class="nav-link" href="{%url 'contact'%}">Contact</a>
+        </li>
+      </ul>
+      {% if user.is_authenticated %}
+      <div class="form-inline mt-2 mt-md-0">
+        <div class="p-2 bg-dark text-white">
+          Logged in as : {{user.username}}
+        </div>
+        <a class="nav-link" href="{%url 'logout'%}">
+          <button class="btn btn-info my-2 my-sm-0" type="submit">
+            LogOut
+          </button>
+        </a>
+        {% else %}
+        <a class="nav-link" href="{%url 'register'%}">
+          <button class="btn btn-primary" type="submit">Register</button>
+        </a>
+        <a class="nav-link" href="{%url 'login'%}">
+          <button class="btn btn-success" type="submit">LogIn</button>
+        </a>
+      </div>
+      {% endif %}
+    </div>
+  </nav>
+</section>
